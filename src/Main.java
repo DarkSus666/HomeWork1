@@ -64,11 +64,23 @@ public class Main {
         }
         System.out.println();
 
-        int friday = 1;
-        do {
-            System.out.println("Сегодня пятница, " + friday + "-е число. Необходимо подготовить отчет");
-            friday += 7;
-        } while (friday <= 31);
+        int friday = 3;
+        int day = 1;
+        if (friday == 7) {
+            while (day <= 31) {
+                if (day % 7 == 0) {
+                    System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет");
+                }
+                day++;
+            }
+        } else {
+            do {
+                if (day % 7 == friday) {
+                    System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет");
+                }
+                day++;
+            } while (day <= 31);
+        }
         System.out.println();
 
         int startCount = 2025 - 200;
