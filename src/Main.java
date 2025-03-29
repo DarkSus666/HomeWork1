@@ -64,10 +64,10 @@ public class Main {
         }
         System.out.println();
 
-        int friday = 7;
+        int friday = 3;
         int day = 1;
             do {
-                if (day%7 == friday || (day%7)+7 == friday ) {
+                if ((day-friday)%7 == 0) {
                     System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет");
                 }
                 day++;
