@@ -1,5 +1,6 @@
 public class EmployeeBook {
-    private static Employee[] employees = new Employee[10];
+    private Employee[] employees = new Employee[10];
+    private int size;
 
     public void showAllEmployees() {
         int count = 0;
@@ -210,4 +211,51 @@ public class EmployeeBook {
         }
     }
 
+    public boolean addEmployee(String name, int department, int salary) {
+        if (size >= employees.length) {
+            System.out.println("Нельзя добавить контакт, закончилось место");
+            return false;
+        }
+        Employee newEmployee = new Employee(name, department, salary);
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] == null) {
+                employees[i] = newEmployee;
+                size++;
+                break;
+            }
+        }
+        return true;
+    }
+
+    public void deleteEmployeeById(int id) {
+        boolean isId = false;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null) {
+                if (employees[i].getId() == id) {
+                    System.out.println("Сотрудник: " + employees[i].getName() + " удален");
+                    employees[i] = null;
+                    size--;
+                    isId = true;
+                }
+            }
+        }
+        if (!isId) {
+            System.out.println("Сотрудника с ID " + id + " нет в компании");
+        }
+    }
+
+    public void searchEmployeeById(int id) {
+        boolean isId = false;
+        for (Employee employee : employees) {
+            if (employee != null) {
+                if (employee.getId() == id) {
+                    System.out.println(employee);
+                    isId = true;
+                }
+            }
+        }
+        if (!isId) {
+            System.out.println("Сотрудника с ID " + id + " нет в компании");
+        }
+    }
 }

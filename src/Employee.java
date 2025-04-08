@@ -8,11 +8,9 @@ public class Employee {
     private double salary;
     private int id;
 
-
-
-    public Employee (String name, int department, int salary) {
+    public Employee(String name, int department, int salary) {
         this.name = name;
-        if (department <= 0 || department >5) {
+        if (department <= 0 || department > 5) {
             throw new IllegalArgumentException("Отдел может быть от 1 до 5");
         }
         this.department = department;
@@ -41,7 +39,7 @@ public class Employee {
     }
 
     public void setDepartment(int department) {
-        if (department <= 0 || department >5) {
+        if (department <= 0 || department > 5) {
             throw new IllegalArgumentException("Отдел может быть от 1 до 5");
         }
         this.department = department;
